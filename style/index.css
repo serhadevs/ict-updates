@@ -1,0 +1,42 @@
+/* #vector-col{
+    display:none !important;
+}
+
+.container{
+    padding:5% !important;
+}
+
+.contact-text{
+    flex:auto 0 0 !important;
+    width: 100% !important;
+    text-align:center !important;
+}
+
+.contact-img{
+    border-radius:50% !important;
+} */
+
+@media screen and (max-width:790px){
+    #vector-col{
+    display:none !important;
+}
+
+.container{
+    padding:5% !important;
+}
+
+.contact-text{
+    flex:auto 0 0 !important;
+    width: 100% !important;
+    text-align:center !important;
+}
+
+.contact-img{
+    border-radius:50% !important;
+}
+
+.update-text{
+    flex:auto 0 0 !important;
+    width: 100% !important;
+}
+}
