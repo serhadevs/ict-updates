@@ -16,66 +16,9 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="/dashboard">
-                <img src="/logo.png" alt="Serha Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fa-regular fa-calendar-check"></i> Corrections 
-                                <span class="badge text-bg-{{ $correctionsCount > 0 ? 'danger' : 'primary' }}">{{ $correctionsCount }}</span>
-                        </a>
-                        @if($correctionsCount > 0 )
-                        <ul class="dropdown-menu dropdown-menu-lg-start">
-                            @foreach ($correction_items as $item)
-                            <li>
-                                <a class="dropdown-item" href="/patient/{{ $item->patientid }}/view">
-                                   <span class="fw-bold"> Patient Id: {{ $item->patientid }}</span><br>
-                                    <i class="fa-regular fa-comment-dots"></i> The patient {{ $item->comments }} is incorrect
-                                </a>
-                            </li>
-                            
-                       
-                            @endforeach
-                            
-                            
-                        </ul>
-                        @endif
-                    </li>
-    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="fa fa-user"></i> {{ auth()->user()->firstname }} {{ auth()->user()->lastname }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-lg-start">
-                            <li><a class="dropdown-item" href="#">Change Password</a></li>
-                            @if (in_array(auth()->user()->role_id, [4, 10]))
-                                <li><a class="dropdown-item" href="/users">Users</a></li>
-                                <li><a class="dropdown-item" href="/reports">Reports</a></li>
-                                <li><a class="dropdown-item" href="/duplicates">Duplicates</a></li>
-                            @endif
-                            <li> <a class="dropdown-item" href="/logout">Logout</a></li>
-    
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-    
-        </div>
-    </nav> -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand p-2" href="#">
+      <div class="container">
+        <a class="navbar-brand p-2" id="home">
           <img src="/images/logo.png" alt="" />
         </a>
         <button
@@ -90,20 +33,22 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fs-5 p-3" aria-current="page" href="#"
+              <a class="nav-link fs-5 p-3" aria-current="page" href="#home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fs-5 p-3"
+                aria-current="page"
+                href="#contact_us"
                 >Contact Us</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link fs-5 p-3" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-5 p-3" href="#">Updates</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-5 p-3" href="#">Serha's Website</a>
+              <a class="nav-link fs-5 p-3" href="#updates">Updates</a>
             </li>
           </ul>
         </div>
@@ -115,7 +60,7 @@
           class="col col-md-5 col-sm-12 d-flex justify-content-center"
           style="align-items: center"
         >
-          <div>
+          <div id="main-text">
             <h4 class="fw-bold" style="color: #020180">
               Keep the Public Up to date
             </h4>
@@ -133,8 +78,14 @@
               Lorem Ipsum.
             </div>
             <div class="mt-4 justify-content-center">
-              <button class="btn btn-primary">Go to Updates</button>
-              <button class="btn btn-success">Contact Us</button>
+              <a class="btn btn-primary" href="#updates">Go to Updates</a>
+              <a
+                class="btn text-white"
+                href="#contact_us"
+                style="background: #020180"
+              >
+                Contact Information
+              </a>
             </div>
           </div>
         </div>
@@ -147,13 +98,14 @@
         </div>
       </div>
       <div class="mt-5">
+        <a id="updates"></a>
         <h1 class="text-center" style="color: #020180">Updates</h1>
         <div class="bg-light p-3 rounded mt-3">
           <div class="row">
             <div class="col update-text">
               <h6 class="text-dark">2024-01-02</h6>
               <h4 class="text-muted">KPH Servers are done</h4>
-              <div class="text-muted ">
+              <div class="text-muted">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s, when an unknown printer took a galley
@@ -161,26 +113,13 @@
               </div>
             </div>
             <div class="col col-auto" style="display: flex">
-              <button class="btn-primary btn-sm btn" style="align-self: center">
-                Read More
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="bg-light p-3 rounded mt-3">
-          <div class="row">
-            <div class="col update-text">
-              <h6 class="text-dark">2024-01-02</h6>
-              <h4 class="text-muted">KPH Servers are done</h4>
-              <div class="text-muted ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-              </div>
-            </div>
-            <div class="col col-auto" style="display: flex">
-              <button class="btn-primary btn-sm btn" style="align-self: center">
+              <button
+                class="btn-primary btn"
+                style="align-self: center"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                onclick="populateModal('KPH Down', '2024-05-09', 'Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.')"
+              >
                 Read More
               </button>
             </div>
@@ -199,7 +138,38 @@
               </div>
             </div>
             <div class="col col-auto" style="display: flex">
-              <button class="btn-primary btn-sm btn mx-auto" style="align-self: center">
+              <button
+                class="btn-primary btn"
+                style="align-self: center"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                onclick="populateModal('KPH Down', '2024-05-09', 'Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.')"
+              >
+                Read More
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-light p-3 rounded mt-3">
+          <div class="row">
+            <div class="col update-text">
+              <h6 class="text-dark">2024-01-02</h6>
+              <h4 class="text-muted">KPH Servers are done</h4>
+              <div class="text-muted">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </div>
+            </div>
+            <div class="col col-auto" style="display: flex">
+              <button
+                class="btn-primary btn"
+                style="align-self: center"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                onclick="populateModal('KPH Down', '2024-05-09', 'Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.')"
+              >
                 Read More
               </button>
             </div>
@@ -208,124 +178,107 @@
       </div>
       <div class="mt-4">
         <h1 class="text-center" style="color: #020180">Contact Us</h1>
-        <!-- <div class="row mb-4">
-          <div class="col col-md-3 col-sm-12 col-sm-12">
-            <img
-              src="/images/team_photos/1703641088067.jpg"
-              alt=""
-              class="rounded contact-img"
-              style="width: 100%"
-            />
-          </div>
-          <div
-            class="col col-sm-12 col-xs-12 col-md-9 contact-text"
-            style="display: flex"
-          >
-            <div class="" style="align-self: center">
-              <h3 class="text-dark">Kian O'Connor</h3>
-              <h5 class="text-muted">
-                Software and Training Administrator (876)123-9090
-              </h5>
-              <div class="text-muted">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using 'Content
-                here, content here', making it look like readable English. Many
-                desktop publishing packages and web page editors now use Lorem
-                Ipsum as their default model text, and a search for 'lorem
-                ipsum' will uncover many web sites still in their infancy.
-                Various versions have evolved over the years, sometimes by
-                accident, sometimes on purpose (injected humour and the like).
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div class="row mb-4">
-          <div class="col">
-            <img
-              src="/images/team_photos/tywayne.jpg"
-              alt=""
-              class="w-100 rounded contact-img"
-            />
-          </div>
-          <div class="col col-md-9 contact-text" style="display: flex">
-            <div style="align-self: center">
-              <h3 class="text-muted">Tywayne Buchannan</h3>
-              <h5 class="text-dark">Senior Software Engineer (876)123-4567</h5>
-              <div class="text-muted">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using 'Content
-                here, content here', making it look like readable English. Many
-                desktop publishing packages and web page editors now use Lorem
-                Ipsum as their default model text, and a search for 'lorem
-                ipsum' will uncover many web sites still in their infancy.
-                Various versions have evolved over the years, sometimes by
-                accident, sometimes on purpose (injected humour and the like).
-              </div>
-            </div>
-          </div>
-        </div> -->
+        <a id="contact_us"></a>
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Kevin Mendez </td>
-                    <td><a href="tel:(876)538-7474">(876)538-7474</a></td>
-                </tr>
-                <tr>
-                    <td>Tywayne Buchanan </td>
-                    <td><a href="tel:(876)310-1887">(876)310-1887</a></td>
-                </tr>
-                <tr>
-                    <td>Jermaine McFarlane </td>
-                    <td><a href="tel:(876)538-7791">(876)538-7791</a></td>
-                </tr>
-                <tr>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kevin Mendez</td>
+              <td><a href="tel:(876)538-7474">(876)538-7474</a></td>
+            </tr>
+            <tr>
+              <td>Tywayne Buchanan</td>
+              <td><a href="tel:(876)310-1887">(876)310-1887</a></td>
+            </tr>
+            <tr>
+              <td>Jermaine McFarlane</td>
+              <td><a href="tel:(876)538-7791">(876)538-7791</a></td>
+            </tr>
+            <!-- <tr>
                     <td>Kian Oconnor</td>
                     <td><a href="tel:(876)770-1107">(876)770-1107</a></td>
-                </tr>
-                <tr>
-                    <td>Kerone Weir </td>
-                    <td><a href="tel:(876)317-9339">(876)317-9339</a></td>
-                </tr>
-                <tr>
-                    <td>Tobian Eccleston </td>
-                    <td><a href="tel:(876)549-0350">(876)549-0350</a></td>
-                </tr>
-            </tbody>
+                </tr> -->
+            <tr>
+              <td>Kerone Weir</td>
+              <td><a href="tel:(876)317-9339">(876)317-9339</a></td>
+            </tr>
+            <tr>
+              <td>Tobian Eccleston</td>
+              <td><a href="tel:(876)549-0350">(876)549-0350</a></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
-    <div class="container">
-      <footer class="py-3 my-4">
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Update Title - Update Date
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid bg-primary text-light">
+      <footer class="py-3 mt-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">Home</a>
+            <a href="#home" class="nav-link px-2 text-white">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">Features</a>
+            <a href="#contact_us" class="nav-link px-2 text-white"
+              >Contact Us</a
+            >
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">FAQs</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-body-secondary">About</a>
+            <a href="#updates" class="nav-link px-2 text-white">Updates</a>
           </li>
         </ul>
-        <p class="text-center text-body-secondary">&copy; 2024 Company, Inc</p>
+        <p class="text-center text-white">
+          &copy; 2024 South East Regional Health Authority
+        </p>
       </footer>
+      <script>
+        function populateModal(title, date, information) {
+          document.querySelector(".modal-title").innerHTML =
+            title + " - " + date;
+          document.querySelector(".modal-body").innerHTML = information;
+        }
+      </script>
     </div>
   </body>
 </html>

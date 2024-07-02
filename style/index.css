@@ -39,4 +39,14 @@
     flex:auto 0 0 !important;
     width: 100% !important;
 }
+.col-auto{
+    width:100% !important;
+    text-align:center !important;
+    display:initial !important;
+    margin-top: 2vh;
+}
+
+#main-text{
+    text-align:center;
+}
 }
